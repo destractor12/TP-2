@@ -1,4 +1,4 @@
-struct
+typedef struct
 {
  int id;
  char name[51];
@@ -6,7 +6,7 @@ struct
  float salary;
  int sector;
  int isEmpty;
-}typedef eEmployee;
+}eEmployee;
 
 
 int initEmployees(eEmployee* , int );

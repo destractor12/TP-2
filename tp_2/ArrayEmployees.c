@@ -336,3 +336,24 @@ int addEmployee(eEmployee* list, int len, int id, char name[],char lastName[],fl
 
         return auxiliar;
     }
+
+
+int printEmployees(eEmployee* list, int length)
+{
+    int retorno=-1;
+    int i;
+        for(i=0;i<length;i++)
+        {
+            if(list!=NULL)
+            {
+                if(list[i].isEmpty == 1)
+                {
+                    printf("%d\t    %s\t    %s\t    %f\t    %d \n",list[i].id, list[i].name, list[i].lastName, list[i].salary, list[i].sector);
+                    retorno=0;
+                }
+
+            }
+        }
+    return retorno;
+}
+

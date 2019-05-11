@@ -5,34 +5,70 @@
 
 int main()
 {
-    eEmployee* list[TAM];
+    eEmployee list[TAM];
     int opcion;
+    int auxcarga;
+    int auxid;
+    int r;
 
-    initEmployees(list,TAM);
+    auxcarga=initEmployees(list,TAM);
     do
     {
+        fflush(stdin);
         opcion = mostrarMenu();
 
 
 
         switch(opcion)
         {
-            case 1:alta(list,TAM);
+            case 1:if(auxcarga==0)
+                    {
+                        alta(list,TAM);
+                    }
+                    else
+                    {
+                        printf("No se inicializo el array de empleados");
+                    }
+
             break;
 
             case 2:
             break;
 
-            case 3:
+            case 3:if(auxcarga==0)
+                    {
+                        printf("Ingrese el id del empleado que desea borrar: ");
+                        scanf("%d",&auxid);
+                        removeEmployee(list,TAM,auxid);
+                    }
+                    else
+                    {
+                        printf("No se inicializo el array de empleados");
+                    }
+
             break;
 
-            case 4:
+            case 4:if(auxcarga==0)
+                    {
+                        r=printEmployees(list,TAM);
+                        if(r==-1)
+                        {
+                            printEmployees("No se encontro nada para mostrar");
+                        }
+                    }
+                    else
+                    {
+                        printf("No se inicializo el array de empleados");
+                    }
+
+
             break;
 
             case 5: opcion=5;
             break;
         }
-
+        system("\npause");
+        system("cls");
     }while(opcion!=5);
 
     return 0;
